@@ -1,0 +1,82 @@
+{
+    "name": "CustomActions",
+    "maps": [
+        {
+            "name": "Main",
+            "id": "874da26b-a6ab-4e02-92d4-f8fc10938f8a",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Button",
+                    "id": "c4e3814f-a917-4242-901d-db9292999870",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "5c7d5055-49f4-4d1e-a91f-b683bcf13e86",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Touch",
+            "id": "e8cc95cc-c90e-41f5-a0a7-45f0091a28b1",
+            "actions": [
+                {
+                    "name": "TouchPosition",
+                    "type": "Value",
+                    "id": "080243e1-93ce-44b3-b037-edcb91be9e7e",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "TouchPress",
+                    "type": "Button",
+                    "id": "6720a8e3-9d8e-47ad-9666-f6d86f32010a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f15e564c-63c0-4c49-a097-7e9015d638e1",
+                    "path": "<Touchscreen>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TouchPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d7085f99-7e97-4c3c-af77-d9365b94bd58",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TouchPress",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
