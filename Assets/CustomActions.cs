@@ -97,7 +97,7 @@ public partial class @CustomActions: IInputActionCollection2, IDisposable
                     ""id"": ""c4e3814f-a917-4242-901d-db9292999870"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Tap"",
                     ""initialStateCheck"": false
                 }
             ],
@@ -106,7 +106,7 @@ public partial class @CustomActions: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""5c7d5055-49f4-4d1e-a91f-b683bcf13e86"",
                     ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
+                    ""interactions"": ""Tap(duration=0.2)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Move"",
@@ -134,7 +134,7 @@ public partial class @CustomActions: IInputActionCollection2, IDisposable
                     ""id"": ""6720a8e3-9d8e-47ad-9666-f6d86f32010a"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Tap(duration=0.2,pressPoint=0.5)"",
                     ""initialStateCheck"": false
                 }
             ],
@@ -154,7 +154,7 @@ public partial class @CustomActions: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""d7085f99-7e97-4c3c-af77-d9365b94bd58"",
                     ""path"": ""<Touchscreen>/Press"",
-                    ""interactions"": """",
+                    ""interactions"": ""Tap"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""TouchPress"",

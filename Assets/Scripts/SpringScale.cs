@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.AI;
 public class SpringScale : MonoBehaviour {
 
 	public bool LaunchatStart;
@@ -8,6 +8,7 @@ public class SpringScale : MonoBehaviour {
     public bool EndScreenOn;
 
     public GameObject StartScale;
+
 
 	public float StartTime;
 	public float ScaleTime;
@@ -41,6 +42,7 @@ public class SpringScale : MonoBehaviour {
 			this.gameObject.transform.localScale = StartScale.transform.localScale;
 			Open = false;
             Player.GetComponent<PlayerController>().enabled = true;
+            Player.GetComponent<NavMeshAgent>().enabled = true;
 
         }
 
@@ -64,6 +66,7 @@ public class SpringScale : MonoBehaviour {
             this.gameObject.transform.localScale = StartScale.transform.localScale;
             Open = false;
             Player.GetComponent<PlayerController>().enabled = true;
+            Player.GetComponent<NavMeshAgent>().enabled = true;
         }
 
     }
@@ -76,12 +79,14 @@ public class SpringScale : MonoBehaviour {
         this.gameObject.transform.localScale = StartScale.transform.localScale;
 		Open = false;
         Player.GetComponent<PlayerController>().enabled = true;
+        Player.GetComponent<NavMeshAgent>().enabled = true;
     }
 
 	public void SetFlagOpen()
 	{
 		Open = true;
         Player.GetComponent<PlayerController>().enabled = false;
+        Player.GetComponent<NavMeshAgent>().enabled = false;
         Player.GetComponent<Animator>().SetBool("isRunning", false);
         Player.GetComponent<Animator>().SetBool("isJumping", false);
     }
@@ -90,6 +95,7 @@ public class SpringScale : MonoBehaviour {
 	{
 		Open = false;
         Player.GetComponent<PlayerController>().enabled = true;
+        Player.GetComponent<NavMeshAgent>().enabled = true;
     }
 
 	IEnumerator DelaySpringScale()
@@ -109,7 +115,8 @@ public class SpringScale : MonoBehaviour {
 		if (EndScreenOn == true) { 
 			iTween.ScaleTo(gameObject, iTween.Hash("name", "SpScale", "scale", new Vector3(1f, 1f, 1f), "time", ScaleTime, "easeType", iTween.EaseType.spring));
 			Open = true;
-			Player.GetComponent<PlayerController>().enabled = false;
+            Player.GetComponent<PlayerController>().enabled = false;
+            Player.GetComponent<NavMeshAgent>().enabled = false;
             Player.GetComponent<Animator>().SetBool("isRunning", false);
             Player.GetComponent<Animator>().SetBool("isJumping", false);
 

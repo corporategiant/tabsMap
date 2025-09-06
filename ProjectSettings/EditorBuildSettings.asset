@@ -5,12 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/tabsBookMapsN.unity
-    guid: 4beb05c0294b743e1a63ef5e300e057d
+    path: Assets/Scenes/tabsMap.unity
+    guid: 24a24fb3c67b84f2c8167ee796a83757
+  - enabled: 1
+    path: Assets/Scenes/Int_adminDesk.unity
+    guid: c71999a16aa63402b894d95b6282a70f
+  - enabled: 1
+    path: Assets/Scenes/Int_adminSeating.unity
+    guid: 371bcaae1a1634750a321d07a60d2ef0
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: c3da2f17b79db4cc7918256d0d6d4de6, type: 3}
   m_UseUCBPForAssetBundles: 0
