@@ -9,6 +9,8 @@ public class ClickableTextBoxes : MonoBehaviour {
 	public GameObject TextBoxOn;
     public GameObject Player;
 
+    public GameObject HUDFlag;
+
     public GameObject[] TextBoxes;
 
 	public bool TextBoxesOn;
@@ -51,6 +53,7 @@ public class ClickableTextBoxes : MonoBehaviour {
 			{
 				// this object was clicked - do something
 				Debug.Log ("Clickable Says Was Clicked");
+                    HUDFlag.SetActive(false);
 
                     TextBoxOn.GetComponent<SpringScale> ().startDelaySpringScale ();
 				if (MultipleTextBox == true) 

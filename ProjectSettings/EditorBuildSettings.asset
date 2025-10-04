@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/CharacterSelector.unity
+    guid: e89cffcf0295e406c8184a2df03f1494
+  - enabled: 1
     path: Assets/Scenes/tabsMap.unity
     guid: 24a24fb3c67b84f2c8167ee796a83757
   - enabled: 1

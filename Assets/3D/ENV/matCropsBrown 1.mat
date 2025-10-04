@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Material 10
+  m_Name: matCropsBrown 1
   m_Shader: {fileID: 4800000, guid: 274dde6a361ac41cca55530253e01ff4, type: 3}
   m_Parent: {fileID: 2100000, guid: 8a6e180e4d6384bb4ad793007401b3ed, type: 2}
   m_ModifiedSerializedProperties: 0
@@ -40,6 +40,6 @@ Material:
     m_Ints: []
     m_Floats: []
     m_Colors:
-    - _Color: {r: 0.4056604, g: 0.36507422, b: 0.34634212, a: 1}
+    - _Color: {r: 0.33962262, g: 0.30718225, b: 0.29636878, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
