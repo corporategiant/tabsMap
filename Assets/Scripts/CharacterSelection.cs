@@ -18,28 +18,25 @@ public class CharacterSelection : MonoBehaviour
     public GameObject GlassesRound;
     public GameObject GlassesSquare;
 
-    public GameObject MUTShirt;
+    public GameObject TShirt;
 
     public int ChLook;
     public string username;
     public string StudentID;
 
-    void Start()
+    void Awake()
     {
         username = (PlayerPrefs.GetString("username"));
         StudentID = (PlayerPrefs.GetString("StudentID"));
-    }
-
-    void Update()
-    {
-        if (PlayerPrefs.GetInt(username + StudentID + "MUTShirtIsOn") == 1)
+ 
+        if (PlayerPrefs.GetInt(username + StudentID + "TShirtIsOn") == 1)
         {
-            MUTShirt.SetActive(true);
+            TShirt.SetActive(true);
         }
 
-        if (PlayerPrefs.GetInt(username + StudentID + "MUTShirtIsOn") == 0)
+        if (PlayerPrefs.GetInt(username + StudentID + "TShirtIsOn") == 0)
         {
-            MUTShirt.SetActive(false);
+            TShirt.SetActive(false);
         }
 
         if (PlayerPrefs.GetInt(username + StudentID + "GlassesRoundIsOn") == 1)

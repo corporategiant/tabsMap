@@ -290,10 +290,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d59f2a6e3ac7d4f20965f12fef335e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaitForInput: 0
   SceneToLoad: CharacterSelector
   Pause: 3
-  Progress: 0
+  LoadAtStart: 1
 --- !u!1 &937916573
 GameObject:
   m_ObjectHideFlags: 0

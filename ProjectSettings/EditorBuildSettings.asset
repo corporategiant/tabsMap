@@ -6,15 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/LoginScreen.unity
+    guid: 55ff1bf2de29e40ee8e245f17ece1df9
+  - enabled: 1
+    path: Assets/Scenes/LandscapeMode.unity
+    guid: 97824f4984e5e4d178c466f259152be6
+  - enabled: 1
+    path: Assets/Scenes/SPLASH.unity
+    guid: ef3e095949c454c1bad495e495d0f567
+  - enabled: 1
     path: Assets/Scenes/CharacterSelector.unity
     guid: e89cffcf0295e406c8184a2df03f1494
   - enabled: 1
     path: Assets/Scenes/tabsMap.unity
     guid: 24a24fb3c67b84f2c8167ee796a83757
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Int_adminDesk.unity
     guid: c71999a16aa63402b894d95b6282a70f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Int_adminSeating.unity
     guid: 371bcaae1a1634750a321d07a60d2ef0
   m_configObjects:

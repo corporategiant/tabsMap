@@ -109,16 +109,19 @@ public class PlayerController : MonoBehaviour
     void FaceTarget()
     {
         if (agent.destination == transform.position) return;
-
-        Vector3 facing = Vector3.zero;
-        if (target != null)
-        { facing = target.transform.position; }
         else
-        { facing = agent.destination; }
+        {
 
-        Vector3 direction = (facing - transform.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * lookRotationSpeed);
+            Vector3 facing = Vector3.zero;
+            if (target != null)
+            { facing = target.transform.position; }
+            else
+            { facing = agent.destination; }
+
+            Vector3 direction = (facing - transform.position).normalized;
+            Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * lookRotationSpeed);
+        }
     }
 
     void ReachDistance()

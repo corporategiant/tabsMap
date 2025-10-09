@@ -20,6 +20,15 @@ public class clickChangeCharacter : MonoBehaviour
     public GameObject SpaceHelmet;
 
     public GameObject MothWings;
+    public GameObject TShirt;
+    public Material Body;
+    public Material Legs;
+    public Material Hair;
+    public Material Skin;
+    public Color[] ColourBody;
+    public Color[] ColourLegs;
+    public Color[] ColourHair;
+    public Color[] ColourSkin;
 
     public int ChLook;
 
@@ -44,10 +53,10 @@ public class clickChangeCharacter : MonoBehaviour
 
         SnorkelAddOn = PlayerPrefs.GetInt(username + StudentID + "SnorkelAddOn");
 
-        
+
         SpaceHelmetAddOn = PlayerPrefs.GetInt(username + StudentID + "SpaceHelmetAddOn");
 
-        
+
         MothWingsAddOn = PlayerPrefs.GetInt(username + StudentID + "MothWingsAddOn");
 
         if (PlayerPrefs.GetInt(username + StudentID + "SnorkelIsOn") == 1)
@@ -55,7 +64,7 @@ public class clickChangeCharacter : MonoBehaviour
             Snorkel.SetActive(true);
             RubberRing.SetActive(true);
             SnorkelIsOn = true;
-            
+
         }
         else if (PlayerPrefs.GetInt(username + StudentID + "SnorkelIsOn") == 0)
         {
@@ -90,7 +99,7 @@ public class clickChangeCharacter : MonoBehaviour
 
         if (PlayerPrefs.GetInt(username + StudentID + "ChLook", ChLook) == 0)
         {
-            if (PlayerPrefs.GetInt(username + StudentID + "SpaceHelmetIsOn") ==1)
+            if (PlayerPrefs.GetInt(username + StudentID + "SpaceHelmetIsOn") == 1)
             {
                 SpaceHelmet.SetActive(true);
                 SpaceHelmetIsOn = true;
@@ -194,6 +203,11 @@ public class clickChangeCharacter : MonoBehaviour
             HairC1.SetActive(true);
             Hijab.SetActive(false);
         }
+
+        Body.SetColor("_Color", ColourBody[PlayerPrefs.GetInt(username + StudentID + "ColourBody")]);
+        Legs.SetColor("_Color", ColourLegs[PlayerPrefs.GetInt(username + StudentID + "ColourLegs")]);
+        Hair.SetColor("_Color", ColourHair[PlayerPrefs.GetInt(username + StudentID + "ColourHair")]);
+        Skin.SetColor("_Color", ColourSkin[PlayerPrefs.GetInt(username + StudentID + "ColourSkin")]);
 
     }
 
@@ -415,6 +429,8 @@ public class clickChangeCharacter : MonoBehaviour
         }
 
         Debug.Log("ClickChangeCharacter Says Was Clicked");
+
+        
     }
 
 

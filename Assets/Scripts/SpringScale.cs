@@ -19,11 +19,13 @@ public class SpringScale : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        
 
-		if (LaunchatStart == true) {
-			this.gameObject.transform.localScale = StartScale.transform.localScale;
-			StartCoroutine (DelaySpringScale ());
-		}
+		if (LaunchatStart == true)
+        {
+            this.gameObject.transform.localScale = StartScale.transform.localScale;
+            StartCoroutine(DelaySpringScale());
+        }
 			
 	}
 
@@ -94,6 +96,7 @@ public class SpringScale : MonoBehaviour {
 	public void SetFlagClosed()
 	{
 		Open = false;
+        
         Player.GetComponent<PlayerController>().enabled = true;
         Player.GetComponent<NavMeshAgent>().enabled = true;
     }
@@ -103,6 +106,7 @@ public class SpringScale : MonoBehaviour {
 		yield return new WaitForSeconds (StartTime);
 		iTween.ScaleTo(gameObject, iTween.Hash("name", "SpScale", "scale", new Vector3(1f, 1f, 1f), "time", ScaleTime, "easeType", iTween.EaseType.spring));
 		Open = true;
+        
         Player.GetComponent<PlayerController>().enabled = false;
         Player.GetComponent<NavMeshAgent>().enabled = false;
         Player.GetComponent<Animator>().SetBool("isRunning", false);
@@ -115,6 +119,7 @@ public class SpringScale : MonoBehaviour {
 		if (EndScreenOn == true) { 
 			iTween.ScaleTo(gameObject, iTween.Hash("name", "SpScale", "scale", new Vector3(1f, 1f, 1f), "time", ScaleTime, "easeType", iTween.EaseType.spring));
 			Open = true;
+            
             Player.GetComponent<PlayerController>().enabled = false;
             Player.GetComponent<NavMeshAgent>().enabled = false;
             Player.GetComponent<Animator>().SetBool("isRunning", false);

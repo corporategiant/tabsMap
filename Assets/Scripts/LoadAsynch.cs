@@ -1,44 +1,42 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 
-public class LoadAsynch : MonoBehaviour {
-
-	public bool WaitForInput;
+public class LoadSceneAsynch : MonoBehaviour {
 
 	public string SceneToLoad;
 	public float Pause;
-	public float Progress = 0;
-	
-	private bool _levelIsLoading;
-	public bool levelIsLoading{
-		get{ return _levelIsLoading;}    
+
+	public bool LoadAtStart;
+
+	void Start()
+	{
+		if (LoadAtStart == true)
+		{
+			StartCoroutine("LoadScene");
+		}
 	}
-	
-	private AsyncOperation async;
-	
-	
-	IEnumerator Start()
+
+	public void StartLoadScene()
+	{
+		
+		StartCoroutine("LoadScene");
+	}
+
+	public void Skip()
+	{
+
+		StopAllCoroutines();
+		SceneManager.LoadScene(SceneToLoad);
+	}
+
+	IEnumerator LoadScene()
 	{
 		yield return new WaitForSeconds(Pause);
-		_levelIsLoading = true;
-		async = Application.LoadLevelAsync(SceneToLoad);
-		if (WaitForInput == true) 
-		{
-			async.allowSceneActivation = false;
-		}
+	
+		SceneManager.LoadSceneAsync(SceneToLoad);
 
-		
 	}
-	
-	private void Update(){
-		if(_levelIsLoading){
-			Progress = async.progress;    
-		}
-	}
-	
-	
-	public void startLevel(){
-		async.allowSceneActivation = true;    
-	}    
 }

@@ -19,9 +19,21 @@ public class ClickableTextBoxes : MonoBehaviour {
 
     private float temps;
 
+    void Start()
+    {
+        StartCoroutine("StartNotClickable");
+    }
+
+    IEnumerator StartNotClickable()
+    {
+        yield return new WaitForSeconds(0.1f);
+        TextBoxClickable = false;
+
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log ("Player Entered Trigger");
+        Debug.Log("Player Entered Trigger");
         TextBoxClickable = true;
     }
     private void OnTriggerExit(Collider other)
