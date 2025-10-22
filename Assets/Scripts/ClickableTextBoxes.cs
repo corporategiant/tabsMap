@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.AI;
 
 public class ClickableTextBoxes : MonoBehaviour {
 
@@ -40,7 +41,7 @@ public class ClickableTextBoxes : MonoBehaviour {
     {
         Debug.Log("Player Exited Trigger");
         TextBoxClickable = false;
-        TextBoxOn.GetComponent<SpringScale>().ResetScale();
+        TextBoxOn.GetComponent<SpringScaleCH>().ResetScale();
     }
 
     void OnMouseDown(){
@@ -51,6 +52,20 @@ public class ClickableTextBoxes : MonoBehaviour {
             }
         }
     }
+    public void CloseAllBoxes()
+    {
+        HUDFlag.SetActive(true);
+        TextBoxOn.GetComponent<SpringScaleCH> ().ResetScale ();
+        TextBoxesOn = false;
+        if (MultipleTextBox == true) 
+        {
+            foreach (GameObject Textbox in TextBoxes)
+            {
+                Textbox.GetComponent<SpringScaleCH>().ResetScale();
+            }
+        }  
+        
+    }
 
 
 
@@ -59,26 +74,38 @@ public class ClickableTextBoxes : MonoBehaviour {
         if (TextBoxClickable == true)
         {
             if ( Input.GetMouseButtonUp (0) )
-		{
-            
+		{           
             if (Time.time - temps <= 0.5)
 			{
 				// this object was clicked - do something
 				Debug.Log ("Clickable Says Was Clicked");
+                
+                if(TextBoxesOn == false)
+                {
                     HUDFlag.SetActive(false);
-
-                    TextBoxOn.GetComponent<SpringScale> ().startDelaySpringScale ();
-				if (MultipleTextBox == true) 
-				{
-                    foreach (GameObject Textbox in TextBoxes)
+                    TextBoxOn.GetComponent<SpringScaleCH> ().startDelaySpringScale ();
+                    TextBoxesOn = true;
+                    if (MultipleTextBox == true) 
                     {
-
-                        Textbox.GetComponent<SpringScale>().ResetScale();
-
-                    }
-                    
+                        foreach (GameObject Textbox in TextBoxes)
+                        {
+                            Textbox.GetComponent<SpringScaleCH>().ResetScale();
+                        }
+                    }                    
 				}
-
+                if(TextBoxesOn == true)
+                {
+                    HUDFlag.SetActive(true);
+                    TextBoxOn.GetComponent<SpringScaleCH> ().ResetScale ();
+                    TextBoxesOn = false;
+				    if (MultipleTextBox == true) 
+                    {
+                        foreach (GameObject Textbox in TextBoxes)
+                        {
+                            Textbox.GetComponent<SpringScaleCH>().ResetScale();
+                        }
+                    }                    
+				}
                 }
 
             }

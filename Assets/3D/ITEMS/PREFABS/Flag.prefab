@@ -169,8 +169,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Howie
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 606cdee582f294e2fa7a6b26cb61f0ac, type: 2}
-  m_sharedMaterial: {fileID: -564587960746972975, guid: 606cdee582f294e2fa7a6b26cb61f0ac, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0a0ec7f1e96764b13b72dea72a0cd52c, type: 2}
+  m_sharedMaterial: {fileID: 1689053510278896492, guid: 0a0ec7f1e96764b13b72dea72a0cd52c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

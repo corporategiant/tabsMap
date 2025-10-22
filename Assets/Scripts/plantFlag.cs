@@ -15,10 +15,12 @@ public class plantFlag : MonoBehaviour
 
     public string serverUrl = "https://www.corporategiant.co.uk/tabsMapData/SaveFlagLocation.php";
     public string flagName;
+    public string fileName;
 
     [System.Serializable]
     public class WorldData
     {
+        public string fileName;
         public string flagName;
         public float x;
         public float y;
@@ -29,7 +31,8 @@ public class plantFlag : MonoBehaviour
 
     void Start()
     {
-        flagName = PlayerPrefs.GetString("username");
+        fileName = PlayerPrefs.GetString("username")+PlayerPrefs.GetString("StudentID");
+        flagName = PlayerPrefs.GetString("username"); 
     }
 
 
@@ -59,6 +62,7 @@ public class plantFlag : MonoBehaviour
         // Create a new data object and populate it
         WorldData data = new WorldData();
         data.flagName = flagName;
+        data.fileName = fileName;
         data.x = flag1.transform.position.x;
         data.y = flag1.transform.position.y;
         data.z = flag1.transform.position.z;

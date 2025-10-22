@@ -1,12 +1,19 @@
 using UnityEngine;
+using UnityEngine.AI;
 
-public class clickItem : MonoBehaviour
+public class clickMap : MonoBehaviour
 {
 
-    public GameObject Item;
-   void OnMouseDown()
+    public GameObject MapGrp;
+    public GameObject Player;
+    public GameObject HUD;
+    void OnMouseDown()
     {
-        Item.gameObject.GetComponent<SpringScale>().startDelaySpringScale();
+        MapGrp.gameObject.GetComponent<SpringScale>().startDelaySpringScale();
+        HUD.SetActive(false);
+        Player.GetComponent<NavMeshAgent>().enabled = false;
+        Player.GetComponent<PlayerController>().enabled = false;
+        
     }
 
 

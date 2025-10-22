@@ -207,14 +207,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 18752920}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f507a0de2e764e3f9cd140c6f4cc240, type: 3}
+  m_Script: {fileID: 11500000, guid: 24c5b7ed3fae44c8e8abba282f3db185, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 10
-  minRotation: -2000
-  maxRotation: 2000
-  currentRotation: 0
-  longpress: 0
+  minRotation: -3000
+  maxRotation: 3000
+  currentRotation: -119.742
 --- !u!1 &29946076 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5793678033416078022, guid: e6f0fc10d98404cdf835af075e2d16f0, type: 3}
