@@ -6,6 +6,8 @@ using UnityEngine.InputSystem.Interactions;
 using System.Collections;
 using UnityEngine.Networking;
 using System.Text;
+using UnityEngine.SceneManagement;
+
 
 public class CharacterDataPublish : MonoBehaviour
 {
@@ -27,6 +29,8 @@ public class CharacterDataPublish : MonoBehaviour
     public int ColourLegs;
     public int ColourHair;
     public int ColourSkin;
+    public string SceneToLoad;
+
 
 
 
@@ -59,10 +63,9 @@ public class CharacterDataPublish : MonoBehaviour
         fileName = username + StudentID;
     }
 
-
-    public void startPublishCharacterData()
+    void Update()
     {
-        fileName = PlayerPrefs.GetString("username")+PlayerPrefs.GetString("StudentID");
+        fileName = PlayerPrefs.GetString("username") + PlayerPrefs.GetString("StudentID");
         SnorkelAddOn = PlayerPrefs.GetInt(username + StudentID + "SnorkelAddOn");
         SpaceHelmetAddOn = PlayerPrefs.GetInt(username + StudentID + "SpaceHelmetAddOn");
         MothWingsAddOn = PlayerPrefs.GetInt(username + StudentID + "MothWingsAddOn");
@@ -77,6 +80,27 @@ public class CharacterDataPublish : MonoBehaviour
         ColourLegs = PlayerPrefs.GetInt(username + StudentID + "ColourLegs");
         ColourHair = PlayerPrefs.GetInt(username + StudentID + "ColourHair");
         ColourSkin = PlayerPrefs.GetInt(username + StudentID + "ColourSkin");
+    }
+
+
+    public void startPublishCharacterData()
+    {
+        Debug.Log("startPublishCharacterData.  ChLook: " + ChLook);
+        // fileName = PlayerPrefs.GetString("username") + PlayerPrefs.GetString("StudentID");
+        // SnorkelAddOn = PlayerPrefs.GetInt(username + StudentID + "SnorkelAddOn");
+        // SpaceHelmetAddOn = PlayerPrefs.GetInt(username + StudentID + "SpaceHelmetAddOn");
+        // MothWingsAddOn = PlayerPrefs.GetInt(username + StudentID + "MothWingsAddOn");
+        // SnorkelIsOn = PlayerPrefs.GetInt(username + StudentID + "SnorkelIsOn");
+        // MothWingsIsOn = PlayerPrefs.GetInt(username + StudentID + "MothWingsIsOn");
+        // SpaceHelmetIsOn = PlayerPrefs.GetInt(username + StudentID + "SpaceHelmetIsOn");
+        // ChLook = PlayerPrefs.GetInt(username + StudentID + "ChLook");
+        // GlassesRoundIsOn = PlayerPrefs.GetInt(username + StudentID + "GlassesRoundIsOn");
+        // GlassesSquareIsOn = PlayerPrefs.GetInt(username + StudentID + "GlassesSquareIsOn");
+        // TShirtIsOn = PlayerPrefs.GetInt(username + StudentID + "TShirtIsOn");
+        // ColourBody = PlayerPrefs.GetInt(username + StudentID + "ColourBody");
+        // ColourLegs = PlayerPrefs.GetInt(username + StudentID + "ColourLegs");
+        // ColourHair = PlayerPrefs.GetInt(username + StudentID + "ColourHair");
+        // ColourSkin = PlayerPrefs.GetInt(username + StudentID + "ColourSkin");
 
         StartCoroutine(publishCharacterData());
     }
@@ -95,11 +119,10 @@ public class CharacterDataPublish : MonoBehaviour
         data.MothWingsAddOn = MothWingsAddOn;
         data.SnorkelIsOn = SnorkelIsOn;
         data.MothWingsIsOn = SpaceHelmetAddOn;
-        data.SpaceHelmetIsOn = MothWingsAddOn;
-        data.ChLook = MothWingsAddOn;
-        data.GlassesRoundIsOn = MothWingsAddOn;
-        data.GlassesSquareIsOn = MothWingsAddOn;
-        data.TShirtIsOn = MothWingsAddOn;
+        data.SpaceHelmetIsOn = SpaceHelmetIsOn;
+        data.GlassesRoundIsOn = GlassesRoundIsOn;
+        data.GlassesSquareIsOn = GlassesSquareIsOn;
+        data.TShirtIsOn = TShirtIsOn;
         data.ColourBody = ColourBody;
         data.ColourLegs = ColourLegs;
         data.ColourHair = ColourHair;
@@ -108,6 +131,7 @@ public class CharacterDataPublish : MonoBehaviour
 
         // Convert the object to a JSON string
         string jsonData = JsonUtility.ToJson(data);
+        Debug.Log("publishCharacterData.  ChLook: " + data.ChLook);
 
         // Create the web request
         using (UnityWebRequest request = new UnityWebRequest(serverUrl, "POST"))
@@ -128,7 +152,14 @@ public class CharacterDataPublish : MonoBehaviour
             {
                 Debug.LogError("Error sending data: " + request.error);
             }
+            //LoadScene();
+
         }
+    }
+        public void LoadScene()
+    {
+
+        SceneManager.LoadScene(SceneToLoad);
     }
 }
 
