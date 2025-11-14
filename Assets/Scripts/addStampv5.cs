@@ -3,6 +3,8 @@ using System.Collections;
 using UnityEngine.Networking;
 using System.Text;
 using System.Collections.Generic; // For List<T>
+using TMPro;
+
 
 
 
@@ -10,6 +12,7 @@ public class addStampv5 : MonoBehaviour
 {
     public string username;
     public string StudentID;
+    public TextMeshProUGUI usernametext;
     public bool EndScreen;
     public string SaveStampsPHPUrl;
     public string GetStampsPHPUrl;
@@ -155,6 +158,30 @@ public class addStampv5 : MonoBehaviour
             //StartCoroutine(SaveStamps());
         }
     }
+
+        public void StartCheckStamps()
+    {
+        usernametext.text = PlayerPrefs.GetString("username");
+        currentQuizMasterusername = PlayerPrefs.GetString("QuizMasterusername");
+        currentQuizMasterStudentID = PlayerPrefs.GetString("QuizMasterStudentID");
+        currentQuizMaster = currentQuizMasterusername + currentQuizMasterStudentID;
+        filename = PlayerPrefs.GetString("username") + PlayerPrefs.GetString("StudentID");
+        foldername = PlayerPrefs.GetString("username") + PlayerPrefs.GetString("StudentID");
+        SaveStampsPHPUrl = "https://www.corporategiant.co.uk/tabsQuizData/stampsData/" + foldername + "/write_json.php";
+        GetStampsPHPUrl = "https://www.corporategiant.co.uk/tabsQuizData/stampsData/" + foldername + "/get_data.php";
+
+        if (getStampsAtStart == true)
+        {
+            Debug.Log("Start SetStamps");
+            StartCoroutine(FetchJsonData());
+            //SetStamps();
+            //AddStamps();
+            //StartCoroutine(SaveStamps());
+        }
+    }
+
+
+
     public void FetchData()
     {
         StartCoroutine(FetchJsonData());

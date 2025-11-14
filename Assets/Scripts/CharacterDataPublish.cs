@@ -6,8 +6,6 @@ using UnityEngine.InputSystem.Interactions;
 using System.Collections;
 using UnityEngine.Networking;
 using System.Text;
-using UnityEngine.SceneManagement;
-
 
 public class CharacterDataPublish : MonoBehaviour
 {
@@ -29,8 +27,8 @@ public class CharacterDataPublish : MonoBehaviour
     public int ColourLegs;
     public int ColourHair;
     public int ColourSkin;
-    public string SceneToLoad;
 
+    public int StampNumber;
 
 
 
@@ -53,6 +51,8 @@ public class CharacterDataPublish : MonoBehaviour
         public int ColourLegs;
         public int ColourHair;
         public int ColourSkin;
+
+        public int StampNumber;
     }
 
 
@@ -63,9 +63,10 @@ public class CharacterDataPublish : MonoBehaviour
         fileName = username + StudentID;
     }
 
-    void Update()
+
+    public void startPublishCharacterData()
     {
-        fileName = PlayerPrefs.GetString("username") + PlayerPrefs.GetString("StudentID");
+        fileName = PlayerPrefs.GetString("username")+PlayerPrefs.GetString("StudentID");
         SnorkelAddOn = PlayerPrefs.GetInt(username + StudentID + "SnorkelAddOn");
         SpaceHelmetAddOn = PlayerPrefs.GetInt(username + StudentID + "SpaceHelmetAddOn");
         MothWingsAddOn = PlayerPrefs.GetInt(username + StudentID + "MothWingsAddOn");
@@ -80,27 +81,7 @@ public class CharacterDataPublish : MonoBehaviour
         ColourLegs = PlayerPrefs.GetInt(username + StudentID + "ColourLegs");
         ColourHair = PlayerPrefs.GetInt(username + StudentID + "ColourHair");
         ColourSkin = PlayerPrefs.GetInt(username + StudentID + "ColourSkin");
-    }
-
-
-    public void startPublishCharacterData()
-    {
-        Debug.Log("startPublishCharacterData.  ChLook: " + ChLook);
-        // fileName = PlayerPrefs.GetString("username") + PlayerPrefs.GetString("StudentID");
-        // SnorkelAddOn = PlayerPrefs.GetInt(username + StudentID + "SnorkelAddOn");
-        // SpaceHelmetAddOn = PlayerPrefs.GetInt(username + StudentID + "SpaceHelmetAddOn");
-        // MothWingsAddOn = PlayerPrefs.GetInt(username + StudentID + "MothWingsAddOn");
-        // SnorkelIsOn = PlayerPrefs.GetInt(username + StudentID + "SnorkelIsOn");
-        // MothWingsIsOn = PlayerPrefs.GetInt(username + StudentID + "MothWingsIsOn");
-        // SpaceHelmetIsOn = PlayerPrefs.GetInt(username + StudentID + "SpaceHelmetIsOn");
-        // ChLook = PlayerPrefs.GetInt(username + StudentID + "ChLook");
-        // GlassesRoundIsOn = PlayerPrefs.GetInt(username + StudentID + "GlassesRoundIsOn");
-        // GlassesSquareIsOn = PlayerPrefs.GetInt(username + StudentID + "GlassesSquareIsOn");
-        // TShirtIsOn = PlayerPrefs.GetInt(username + StudentID + "TShirtIsOn");
-        // ColourBody = PlayerPrefs.GetInt(username + StudentID + "ColourBody");
-        // ColourLegs = PlayerPrefs.GetInt(username + StudentID + "ColourLegs");
-        // ColourHair = PlayerPrefs.GetInt(username + StudentID + "ColourHair");
-        // ColourSkin = PlayerPrefs.GetInt(username + StudentID + "ColourSkin");
+        StampNumber = PlayerPrefs.GetInt(username + StudentID + "StampNumber");
 
         StartCoroutine(publishCharacterData());
     }
@@ -118,7 +99,7 @@ public class CharacterDataPublish : MonoBehaviour
         data.SpaceHelmetAddOn = SpaceHelmetAddOn;
         data.MothWingsAddOn = MothWingsAddOn;
         data.SnorkelIsOn = SnorkelIsOn;
-        data.MothWingsIsOn = SpaceHelmetAddOn;
+        data.MothWingsIsOn = MothWingsIsOn;
         data.SpaceHelmetIsOn = SpaceHelmetIsOn;
         data.GlassesRoundIsOn = GlassesRoundIsOn;
         data.GlassesSquareIsOn = GlassesSquareIsOn;
@@ -127,11 +108,11 @@ public class CharacterDataPublish : MonoBehaviour
         data.ColourLegs = ColourLegs;
         data.ColourHair = ColourHair;
         data.ColourSkin = ColourSkin;
+        data.StampNumber = StampNumber;
 
 
         // Convert the object to a JSON string
         string jsonData = JsonUtility.ToJson(data);
-        Debug.Log("publishCharacterData.  ChLook: " + data.ChLook);
 
         // Create the web request
         using (UnityWebRequest request = new UnityWebRequest(serverUrl, "POST"))
@@ -152,14 +133,7 @@ public class CharacterDataPublish : MonoBehaviour
             {
                 Debug.LogError("Error sending data: " + request.error);
             }
-            //LoadScene();
-
         }
-    }
-        public void LoadScene()
-    {
-
-        SceneManager.LoadScene(SceneToLoad);
     }
 }
 
