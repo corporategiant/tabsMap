@@ -1,0 +1,1 @@
+tabsMap is designed to be used with tabsQuiz and is an explorable map of Shinshu Ueda campus.  Flags can be placed that will be discovarable by other users.  This project was devised as an activity for students at Shinshu University Ueda Campus, to share their quiz crrated with tabsQuiz and share with other students via QR code.
